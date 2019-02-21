@@ -1,0 +1,52 @@
+
+
+<canvas id="myChart"></canvas>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+<script>
+	console.log('Hello????')
+	
+	
+	
+	fetch('data').then((res) => {
+		return res.json()
+	}).then((json) => {
+		const data = json.children.map((item) => item.volume)
+		const labels = json.children.map((item) => item.name)
+		const h = 360 / data.length
+		const colors = json.children.map((item, i) => `hsl(${h * i}, 50%, 50%, 0.5)`)
+		console.log(colors)
+		makeChart(data, labels, colors)
+	}).catch((err) => {
+		console.log(err.message)
+	})
+	
+
+	var ctx = document.getElementById("myChart");
+	
+	function makeChart(dataArray, labelsArray, colorsArray) {
+		var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+						labels: labelsArray,
+						datasets: [{
+								label: 'Volume of shares',
+								data: dataArray,
+								backgroundColor: colorsArray,
+								borderColor: colorsArray,
+								borderWidth: 1
+						}]
+				},
+				options: {
+						scales: {
+								yAxes: [{
+										ticks: {
+												beginAtZero:true
+										}
+								}]
+						}
+				}
+		});
+	}
+</script>
+
