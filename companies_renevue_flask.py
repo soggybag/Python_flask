@@ -28,6 +28,7 @@ def get_data():
 #     print(len(j))
 
 from flask import Flask, render_template, jsonify
+from livereload import Server, shell
 
 app = Flask(__name__, static_url_path='')
 
@@ -48,8 +49,17 @@ def home():
 def bars():
     return render_template('chart-bars.html')
 
+# visit: http://127.0.0.1:5000/d3
+@app.route("/d3")
+def d3():
+    return render_template('d3-example.html')
+
 if __name__ == '__main__':
     # import os
     # port = int(os.environ.get('PORT', 5000))
     # app.run(host='0.0.0.0', port=port)
+    app.debug = True
     app.run()
+    # server = Server()
+    # server.serve()
+    print('hello')
