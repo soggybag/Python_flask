@@ -1,6 +1,10 @@
 # Python_flask
 
-Serve static files with Python flask for Daa visualization
+Serve static files with Python flask for Data visualization.
+
+Data is pulled from:
+
+http://www.nasdaq.com/quotes/nasdaq-100-stocks.aspx?render=download
 
 ## Why?
 
@@ -29,5 +33,9 @@ Displays index.html
 Displays chart-bars.html
 
 [http://127.0.0.1:5000/bars](http://127.0.0.1:5000/bars)
+
+Displays d3-example.html (This D3 example use D3 v5)
+
+[http://127.0.0.1:5000/d3](http://127.0.0.1:5000/d3)
 
 **Note!** Static HTML files must be served from the 'templates' directory. 
