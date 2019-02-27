@@ -39,3 +39,12 @@ Displays d3-example.html (This D3 example use D3 v5)
 [http://127.0.0.1:5000/d3](http://127.0.0.1:5000/d3)
 
 **Note!** Static HTML files must be served from the 'templates' directory. 
+
+## TODO
+
+- Move Code to static directory
+  - break code into files for easier use
+- Ivestigate color bug 
+  - colors show gray in some browsers Chart.js examples 
+  - HSLA hue could be the problem
+- Flask Server auto reload watch 
